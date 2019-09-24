@@ -40,7 +40,9 @@ function numbers(from, to, sp, func) {
 
 
 
-function test(number, by){
+function test(){
+    const number = 3,
+        by = 'Fizz';
 
     const targetValueFunc = (index) => index % number === 0 ? by : index;
 
@@ -88,7 +90,7 @@ function test(number, by){
     }
 }
 
-test(3, 'Fizz');
+test();
 
 
 
