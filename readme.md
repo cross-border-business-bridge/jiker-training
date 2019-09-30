@@ -2,6 +2,10 @@
 ## 极客培训课程练习集
 
 ### 第一部分： TDD
+```bash
+https://upstudy.jiker.com/plus/6/platfrom?chapter_id=12
+```
+
 
 #### 目标
 ```bash
