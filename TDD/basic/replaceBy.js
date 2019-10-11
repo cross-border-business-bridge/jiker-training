@@ -6,6 +6,7 @@
  * @param from
  * @param to
  * @param sp
+ * @param func  replace rule
  * @returns {string}
  */
 function numbers(from, to, sp, func) {
@@ -39,45 +40,53 @@ function numbers(from, to, sp, func) {
 }
 
 
-
-function test(){
-    const number = 3,
-        by = 'Fizz';
-
-    const targetValueFunc = (index) => index % number === 0 ? by : index;
+// number 3 will be replaced by Fizz
+function test3ToFizz(){
+    const replace3ToFizz = (index) => index % 3 === 0 ? `Fizz` : index;
 
     const cases = [
         {
-            input: [1, 5, null, targetValueFunc],
-            expect: `1 2 ${by} 4 5`
+            input: [1, 5, null, replace3ToFizz],
+            expect: `1 2 Fizz 4 5`
         }, {
             input: [1, 5, `,`],
             expect: `1,2,3,4,5`
         }, {
+            input: [1, 6, `,`, replace3ToFizz],
+            expect: `1,2,Fizz,4,5,Fizz`
+        }, {
             input: [1, 1],
             expect: `1`
-        }, {
-            input: [2, 1],
-            expect: ``
-        }, {
-            input: [-2, 2],
-            expect: `1 2`
-        }, {
-            input: [0, 1],
-            expect: `1`
-        }, {
-            input: [1, 5, ''],
-            expect: `12345`
-        }, {
-            input: [1, 5, null],
-            expect: `1 2 3 4 5`
-        }, {
-            input: [1, 5, undefined],
-            expect: `1 2 3 4 5`
         }
     ];
 
-    // for(const {} of cases)
+    verifyTestResults(cases);
+}
+
+// number 5 will be replaced by Buzz
+function test5ToBuzz(){
+    const replace5ToBuzz = (index) => index % 5 === 0 ? `Buzz` : index;
+
+    const cases = [
+        {
+            input: [1, 5, null, replace5ToBuzz],
+            expect: `1 2 Buzz 4 5`
+        }, {
+            input: [1, 5, `,`],
+            expect: `1,2,3,4,5`
+        }, {
+            input: [1, 6, `,`, replace5ToBuzz],
+            expect: `1,2,Buzz,4,5,Buzz`
+        }, {
+            input: [1, 1],
+            expect: `1`
+        }
+    ];
+
+    verifyTestResults(cases);
+}
+
+function verifyTestResults(cases) {
     for(let index in cases) {
         const {input, expect} = cases[index];
         const output = numbers.apply(this, input);
@@ -90,7 +99,8 @@ function test(){
     }
 }
 
-test();
 
+test3ToFizz();
+test5ToBuzz();
 
 
