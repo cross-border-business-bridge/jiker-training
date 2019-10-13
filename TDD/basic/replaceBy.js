@@ -75,15 +75,18 @@ function test(){
             expect: `1 2 3 4 5 6 7 8 9 10 11 12 13 14 FizzBuzz`
         }
 
-        // replace3ToFizz and replace5ToBuzz
+        // replace3ToFizz first, then replace5ToBuzz
         ,{
             input: [1, 15, null, (index) => {
-                replace3ToFizz(index);
-                replace5ToBuzz(index);
-            }],
-            expect: `1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz`
-        }
+                let ret = replace3ToFizz(index);
+                if(ret === index) {
+                    ret = replace5ToBuzz(index);
+                }
 
+                return ret;
+            }],
+            expect: `1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 Fizz`
+        }
     ];
 
     for(let index in cases) {
@@ -97,7 +100,6 @@ function test(){
         }
     }
 }
-
 
 test();
 

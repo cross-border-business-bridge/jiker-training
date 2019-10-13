@@ -1,9 +1,6 @@
 
 // 2.将其中3的倍数替换成“Fizz”，
 
-
-
-
 /**
  *
  * @param from
@@ -101,7 +98,6 @@ function verifyTestResults(cases) {
         }
     }
 }
-
 
 test3ToFizz();
 test5ToBuzz();
