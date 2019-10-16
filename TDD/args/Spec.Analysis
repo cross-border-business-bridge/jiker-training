@@ -1,0 +1,22 @@
+
+1st round:
+
+For example:
+curl -x http://localhost:21000 -L https://abc.com/x.html -vk
+==>
+url: https://abc.com/x.html (-L)
+proxy: http://localhost:21000 (-x)
+verbose: true (-v)
+ignore private ssl: true (-k)
+
+----------------------------
+
+Algorithm:
+character - is the key seperator.
+-x http://localhost:21000  => specified value
+-vk => default value 
+
+
+
+
+
